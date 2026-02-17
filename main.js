@@ -78,10 +78,12 @@ function showVersionNotification(version) {
     };
     
     const notification = document.createElement('div');
+    const isMobile = window.innerWidth <= 768;
+    
     notification.style.cssText = `
         position: fixed;
-        top: 120px;
-        right: 20px;
+        top: ${isMobile ? '130px' : '120px'};
+        ${isMobile ? 'left: 10px; right: 10px; max-width: calc(100% - 20px);' : 'right: 20px;'}
         padding: 15px 25px;
         background: linear-gradient(135deg, var(--current-primary), var(--current-accent));
         color: white;
@@ -90,6 +92,7 @@ function showVersionNotification(version) {
         animation: slideInRight 0.5s ease;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         font-weight: 600;
+        font-size: ${isMobile ? '13px' : '14px'};
     `;
     
     notification.textContent = `✓ Тема изменена: ${versionNames[version]}`;
@@ -105,27 +108,32 @@ function showVersionNotification(version) {
 function showDownloadAlert(buttonText) {
     const version = buttonText.trim();
     const alert = document.createElement('div');
+    const isMobile = window.innerWidth <= 768;
+    
     alert.style.cssText = `
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         background: white;
-        padding: 40px;
+        padding: ${isMobile ? '30px 20px' : '40px'};
         border-radius: 15px;
         box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
         z-index: 2000;
         text-align: center;
-        min-width: 350px;
+        width: ${isMobile ? 'calc(100% - 40px)' : '350px'};
+        max-width: 90vw;
         animation: slideInUp 0.5s ease;
+        max-height: 80vh;
+        overflow-y: auto;
     `;
     
     alert.innerHTML = `
-        <h3 style="margin-bottom: 15px; color: var(--current-primary);">Начало загрузки</h3>
-        <p style="margin-bottom: 20px; color: #666;">Вы скачиваете: <strong>${version}</strong></p>
-        <p style="margin-bottom: 20px; color: #999; font-size: 14px;">Загрузка начнется в скором времени...</p>
+        <h3 style="margin-bottom: 15px; color: var(--current-primary); font-size: ${isMobile ? '18px' : '20px'};">Начало загрузки</h3>
+        <p style="margin-bottom: 20px; color: #666; font-size: ${isMobile ? '13px' : '14px'};">Вы скачиваете: <strong>${version}</strong></p>
+        <p style="margin-bottom: 20px; color: #999; font-size: ${isMobile ? '12px' : '14px'};">Загрузка начнется в скором времени...</p>
         <button onclick="this.parentElement.remove()" style="
-            padding: 10px 30px;
+            padding: ${isMobile ? '12px 25px' : '10px 30px'};
             background: var(--current-primary);
             color: white;
             border: none;
@@ -133,16 +141,25 @@ function showDownloadAlert(buttonText) {
             cursor: pointer;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-size: ${isMobile ? '13px' : '14px'};
+            min-width: 120px;
         ">Закрыть</button>
     `;
     
-    alert.onmouseenter = function() {
-        this.querySelector('button').style.transform = 'scale(1.05)';
-    };
-    
-    alert.onmouseleave = function() {
-        this.querySelector('button').style.transform = 'scale(1)';
-    };
+    // Обработчик для мобильной оптимизации
+    const button = alert.querySelector('button');
+    button.addEventListener('touchstart', function() {
+        this.style.transform = 'scale(0.98)';
+    });
+    button.addEventListener('touchend', function() {
+        this.style.transform = 'scale(1)';
+    });
+    button.addEventListener('mouseenter', function() {
+        this.style.transform = 'scale(1.05)';
+    });
+    button.addEventListener('mouseleave', function() {
+        this.style.transform = 'scale(1)';
+    });
     
     document.body.appendChild(alert);
     
@@ -168,24 +185,28 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Эффект параллакса для hero секции
+// Эффект параллакса для hero секции (отключить на мобильных для оптимизации)
 window.addEventListener('scroll', function() {
     const hero = document.querySelector('.hero-visual');
-    if (hero) {
+    const isMobile = window.innerWidth <= 768;
+    
+    if (hero && !isMobile) {
         const scrollPosition = window.pageYOffset;
         hero.style.transform = `translateY(${scrollPosition * 0.5}px)`;
     }
     
-    // Анимация элементов при прокрутке
-    const elements = document.querySelectorAll('[class*="card"], [class*="item"]');
-    elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= window.innerHeight && rect.bottom >= 0) {
-            el.style.opacity = '1';
-            el.style.transform = 'translateY(0)';
-        }
-    });
-});
+    // Анимация элементов при прокрутке (оптимизировано для мобильных)
+    if (window.innerWidth > 480) {
+        const elements = document.querySelectorAll('[class*="card"], [class*="item"]');
+        elements.forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top <= window.innerHeight && rect.bottom >= 0) {
+                el.style.opacity = '1';
+                el.style.transform = 'translateY(0)';
+            }
+        });
+    }
+}, { passive: true });
 
 // Добавляем анимацию при загрузке страницы
 window.addEventListener('load', function() {
