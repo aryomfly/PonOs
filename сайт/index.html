@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PonOs - Профессиональная операционная система</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Выбор версии и режима -->
+    <div class="version-selector-container">
+        <div class="version-selector">
+            <div class="selector-top">
+                <h2>Выберите версию PonOs</h2>
+                <button class="theme-toggle" id="themeToggle" title="Переключить тёмный режим">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
+            <div class="version-buttons">
+                <button class="version-btn" data-version="light">
+                    <span class="version-icon">☀️</span>
+                    <span>Light</span>
+                </button>
+                <button class="version-btn" data-version="standard">
+                    <span class="version-icon">⚙️</span>
+                    <span>Standard</span>
+                </button>
+                <button class="version-btn" data-version="ultra">
+                    <span class="version-icon">⚡</span>
+                    <span>Ultra</span>
+                </button>
+                <button class="version-btn" data-version="gaming">
+                    <span class="version-icon">🎮</span>
+                    <span>Gaming</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Основное содержание -->
+    <div class="container">
+        <!-- Навигация -->
+        <nav class="navbar">
+            <div class="nav-logo">
+                <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Основная форма логотипа -->
+                    <defs>
+                        <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--current-primary);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--current-accent);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Внешний круг -->
+                    <circle cx="50" cy="50" r="48" fill="url(#logoGrad)" opacity="0.2" stroke="url(#logoGrad)" stroke-width="2"/>
+                    <!-- Основной логотип - P -->
+                    <path d="M 30 30 L 30 70 M 30 30 L 50 30 Q 60 30 60 40 Q 60 50 50 50 L 30 50" 
+                          fill="none" stroke="url(#logoGrad)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+                    <!-- Точка O -->
+                    <circle cx="72" cy="50" r="10" fill="none" stroke="url(#logoGrad)" stroke-width="4"/>
+                    <!-- Верхний центральный элемент -->
+                    <rect x="45" y="15" width="10" height="8" rx="2" fill="url(#logoGrad)"/>
+                </svg>
+                <span>PonOs</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">Главная</a></li>
+                <li><a href="#features">Возможности</a></li>
+                <li><a href="#versions">Версии</a></li>
+                <li><a href="#gallery">Скриншоты</a></li>
+                <li><a href="#download">Загрузить</a></li>
+            </ul>
+        </nav>
+
+        <!-- Главная секция -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>PonOs</h1>
+                <p class="hero-subtitle">Профессиональная операционная система нового поколения</p>
+                <div class="hero-description">
+                    <p>Быстрая • Надежная • Универсальная</p>
+                </div>
+                <button class="cta-button">Начать сейчас</button>
+            </div>
+            <div class="hero-visual">
+                <div class="os-mockup">💻</div>
+            </div>
+        </section>
+
+        <!-- Возможности -->
+        <section id="features" class="features">
+            <h2>Основные возможности</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <span class="feature-icon">⚡</span>
+                    <h3>Высокая производительность</h3>
+                    <p>Оптимизированное ядро для максимальной скорости работы и минимального расхода ресурсов</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔒</span>
+                    <h3>Безопасность</h3>
+                    <p>Встроенная система защиты с многоуровневым шифрованием и защитой от вредоносов</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🎨</span>
+                    <h3>Современный интерфейс</h3>
+                    <p>Интуитивный и красивый пользовательский интерфейс с полной настройкой под себя</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">📱</span>
+                    <h3>Кроссплатформность</h3>
+                    <p>Работает на ПК, ноутбуках, планшетах и серверах с одинаковой эффективностью</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🔧</span>
+                    <h3>Легко настраивается</h3>
+                    <p>Мощные инструменты для полной кастомизации под ваши нужды и предпочтения</p>
+                </div>
+                <div class="feature-card">
+                    <span class="feature-icon">🌐</span>
+                    <h3>Сетевые возможности</h3>
+                    <p>Продвинутые инструменты для работы в сети с поддержкой всех современных протоколов</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Версии -->
+        <section id="versions" class="versions">
+            <h2>Все версии PonOs</h2>
+            <div class="versions-grid">
+                <!-- Light Version -->
+                <div class="version-card light-bg">
+                    <div class="version-header">
+                        <h3>☀️ Light Edition</h3>
+                        <span class="version-tag">Легкая версия</span>
+                    </div>
+                    <p class="version-price">Бесплатно ✓</p>
+                    <ul class="version-features">
+                        <li>✓ Минималистичный интерфейс</li>
+                        <li>✓ Малый размер (2 ГБ)</li>
+                        <li>✓ Работает на слабых ПК</li>
+                        <li>✓ Базовые приложения</li>
+                        <li>✓ Невысокий расход батареи</li>
+                    </ul>
+                    <p class="version-desc">Идеально для старых компьютеров и нетбуков. Легкая, быстрая и эффективная версия для базовых задач.</p>
+                    <button class="download-btn light-btn" data-version="light">Скачать</button>
+                </div>
+
+                <!-- Standard Version -->
+                <div class="version-card standard-bg">
+                    <div class="version-header">
+                        <h3>⚙️ Standard Edition</h3>
+                        <span class="version-tag">Стандартная версия</span>
+                    </div>
+                    <p class="version-price">Бесплатно ✓</p>
+                    <ul class="version-features">
+                        <li>✓ Полный функционал</li>
+                        <li>✓ Размер 8 ГБ</li>
+                        <li>✓ Офисные приложения</li>
+                        <li>✓ Профессиональная поддержка</li>
+                        <li>✓ Регулярные обновления</li>
+                    </ul>
+                    <p class="version-desc">Самая популярная версия. Отличный баланс функциональности, производительности и удобства. Для повседневной работы.</p>
+                    <button class="download-btn standard-btn" data-version="standard">Скачать</button>
+                </div>
+
+                <!-- Ultra Version -->
+                <div class="version-card ultra-bg">
+                    <div class="version-header">
+                        <h3>⚡ Ultra Edition</h3>
+                        <span class="version-tag">Максимум производительности</span>
+                    </div>
+                    <p class="version-price">₽ 4,990</p>
+                    <ul class="version-features">
+                        <li>✓ Максимальная производительность</li>
+                        <li>✓ Размер 12 ГБ</li>
+                        <li>✓ Профессиональный софт</li>
+                        <li>✓ Приоритетная поддержка</li>
+                        <li>✓ Облачные сервисы</li>
+                        <li>✓ Виртуализация</li>
+                    </ul>
+                    <p class="version-desc">Для профессионалов и разработчиков. Максимум мощи, инструментов и возможностей для серьезных задач.</p>
+                    <button class="download-btn ultra-btn" data-version="ultra">Купить</button>
+                </div>
+
+                <!-- Gaming Version -->
+                <div class="version-card gaming-bg">
+                    <div class="version-header">
+                        <h3>🎮 Gaming Edition</h3>
+                        <span class="version-tag">Для геймеров</span>
+                    </div>
+                    <p class="version-price">₽ 5,990</p>
+                    <ul class="version-features">
+                        <li>✓ Оптимизация для игр</li>
+                        <li>✓ Размер 15 ГБ</li>
+                        <li>✓ Драйверы для видеокарт</li>
+                        <li>✓ Gaming режим</li>
+                        <li>✓ Поддержка VR</li>
+                        <li>✓ Стриминг игр</li>
+                        <li>✓ Встроенные эмуляторы</li>
+                    </ul>
+                    <p class="version-desc">Специально для игровых энтузиастов. Максимальный FPS, лучшая графика и полная поддержка современных игр.</p>
+                    <button class="download-btn gaming-btn" data-version="gaming">Купить</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Сравнительная таблица -->
+        <section class="comparison">
+            <h2>Сравнение версий</h2>
+            <table class="comparison-table">
+                <thead>
+                    <tr>
+                        <th>Функция</th>
+                        <th>Light</th>
+                        <th>Standard</th>
+                        <th>Ultra</th>
+                        <th>Gaming</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Размер установки</td>
+                        <td>2 ГБ</td>
+                        <td>8 ГБ</td>
+                        <td>12 ГБ</td>
+                        <td>15 ГБ</td>
+                    </tr>
+                    <tr>
+                        <td>Поддержка GPU</td>
+                        <td>Базовая</td>
+                        <td>Стандартная</td>
+                        <td>Продвинутая</td>
+                        <td>Full</td>
+                    </tr>
+                    <tr>
+                        <td>Облачное хранилище</td>
+                        <td>-</td>
+                        <td>256 МБ</td>
+                        <td>1 ГБ</td>
+                        <td>2 ГБ</td>
+                    </tr>
+                    <tr>
+                        <td>Техническая поддержка</td>
+                        <td>Форум</td>
+                        <td>Email</td>
+                        <td>Chat + Phone</td>
+                        <td>Priority 24/7</td>
+                    </tr>
+                    <tr>
+                        <td>Обновления</td>
+                        <td>Ежегодно</td>
+                        <td>Ежеквартально</td>
+                        <td>Ежемесячно</td>
+                        <td>Еженедельно</td>
+                    </tr>
+                    <tr>
+                        <td>Встроенные игры</td>
+                        <td>3</td>
+                        <td>10</td>
+                        <td>25</td>
+                        <td>100+</td>
+                    </tr>
+                    <tr>
+                        <td>Виртуализация</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>✓</td>
+                        <td>✓</td>
+                    </tr>
+                    <tr>
+                        <td>Поддержка VR</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>✓</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Скриншоты -->
+        <section id="gallery" class="gallery">
+            <h2>Скриншоты PonOs</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <div class="gallery-img desktop-1">🖥️</div>
+                    <p>Главный экран рабочего стола</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img desktop-2">📊</div>
+                    <p>Менеджер приложений</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img desktop-3">🎨</div>
+                    <p>Панель инструментов</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img desktop-4">⚙️</div>
+                    <p>Центр управления</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img desktop-5">🔧</div>
+                    <p>Параметры системы</p>
+                </div>
+                <div class="gallery-item">
+                    <div class="gallery-img desktop-6">🎮</div>
+                    <p>Центр игр</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Преимущества -->
+        <section class="benefits">
+            <h2>Почему выбирают PonOs?</h2>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <span class="benefit-number">1</span>
+                    <h3>Безопасность</h3>
+                    <p>Многоуровневая система защиты с шифрованием данных и защитой от вирусов</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">2</span>
+                    <h3>Производительность</h3>
+                    <p>Оптимизированное ядро обеспечивает максимальную скорость работы</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">3</span>
+                    <h3>Экономия ресурсов</h3>
+                    <p>Минимальный расход памяти и процессора для лучшей автономности</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">4</span>
+                    <h3>Кроссплатформность</h3>
+                    <p>Единая система для ПК, ноутбуков, планшетов и серверов</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">5</span>
+                    <h3>Поддержка</h3>
+                    <p>Профессиональная техническая поддержка на русском языке</p>
+                </div>
+                <div class="benefit-item">
+                    <span class="benefit-number">6</span>
+                    <h3>Обновления</h3>
+                    <p>Регулярные обновления с новыми функциями и улучшениями</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Рейтинг -->
+        <section class="ratings">
+            <h2>Оценки и отзывы</h2>
+            <div class="ratings-grid">
+                <div class="rating-card">
+                    <p class="rating-score">⭐ 4.9/5</p>
+                    <p">Надежность</p>
+                </div>
+                <div class="rating-card">
+                    <p class="rating-score">⭐ 4.8/5</p>
+                    <p>Производительность</p>
+                </div>
+                <div class="rating-card">
+                    <p class="rating-score">⭐ 4.9/5</p>
+                    <p>Безопасность</p>
+                </div>
+                <div class="rating-card">
+                    <p class="rating-score">⭐ 4.7/5</p>
+                    <p>Дизайн</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Загрузка -->
+        <section id="download" class="download-section">
+            <h2>Готовы к установке?</h2>
+            <div class="download-content">
+                <p>Выберите версию PonOs и начните работу уже сегодня</p>
+                <div class="download-buttons">
+                    <button class="large-btn light-edition" data-version="light">Light версия - Бесплатно</button>
+                    <button class="large-btn standard-edition" data-version="standard">Standard версия - Бесплатно</button>
+                    <button class="large-btn ultra-edition" data-version="ultra">Ultra версия - ₽4,990</button>
+                    <button class="large-btn gaming-edition" data-version="gaming">Gaming версия - ₽5,990</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Системные требования -->
+        <section class="requirements">
+            <h2>Системные требования</h2>
+            <div class="requirements-grid">
+                <div class="requirement">
+                    <h4>Минимальные</h4>
+                    <ul>
+                        <li>CPU: Intel Pentium / AMD Ryzen 3</li>
+                        <li>RAM: 2 ГБ</li>
+                        <li>Storage: 4 ГБ SSD</li>
+                        <li>Display: 1024x768</li>
+                    </ul>
+                </div>
+                <div class="requirement">
+                    <h4>Рекомендуемые</h4>
+                    <ul>
+                        <li>CPU: Intel i5 / AMD Ryzen 5</li>
+                        <li>RAM: 8 ГБ</li>
+                        <li>Storage: 20 ГБ SSD</li>
+                        <li>Display: 1920x1080</li>
+                    </ul>
+                </div>
+                <div class="requirement">
+                    <h4>Для Ultra</h4>
+                    <ul>
+                        <li>CPU: Intel i7 / AMD Ryzen 7</li>
+                        <li>RAM: 16 ГБ</li>
+                        <li>Storage: 30 ГБ SSD</li>
+                        <li>Display: 2560x1440</li>
+                    </ul>
+                </div>
+                <div class="requirement">
+                    <h4>Для Gaming</h4>
+                    <ul>
+                        <li>CPU: Intel i9 / AMD Ryzen 9</li>
+                        <li>RAM: 32 ГБ</li>
+                        <li>Storage: 50 ГБ NVMe SSD</li>
+                        <li>GPU: RTX 3070+</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Новости -->
+        <section class="news">
+            <h2>Последние новости</h2>
+            <div class="news-grid">
+                <article class="news-card">
+                    <div class="news-date">17 Февраля 2026</div>
+                    <h4>Выпуск PonOs 7.0</h4>
+                    <p>Новая версия ОС с поддержкой AI, улучшенной производительностью и полностью переработанным интерфейсом.</p>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">10 Февраля 2026</div>
+                    <h4>Интеграция с облачными сервисами</h4>
+                    <p>Теперь PonOs полностью интегрирован с облачными сервисами для синхронизации данных на всех устройствах.</p>
+                </article>
+                <article class="news-card">
+                    <div class="news-date">3 Февраля 2026</div>
+                    <h4>Gaming режим достиг совершенства</h4>
+                    <p>Обновленный Gaming режим обеспечивает на 30% выше FPS в современных играх благодаря новым оптимизациям.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Контакты -->
+        <section class="contact">
+            <h2>Свяжитесь с нами</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h4>📧 Email</h4>
+                    <p>support@ponos.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📱 Телефон</h4>
+                    <p>+7 (800) 555-35-35</p>
+                </div>
+                <div class="contact-item">
+                    <h4>🌐 Веб-сайт</h4>
+                    <p>www.ponos.com</p>
+                </div>
+                <div class="contact-item">
+                    <h4>📍 Адрес</h4>
+                    <p>Россия, Москва, ул. IT-профи, 42</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Футер -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>PonOs</h4>
+                <ul>
+                    <li><a href="#">О системе</a></li>
+                    <li><a href="#">Функции</a></li>
+                    <li><a href="#">Загрузить</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Поддержка</h4>
+                <ul>
+                    <li><a href="#">Справка</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Контакты</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Компания</h4>
+                <ul>
+                    <li><a href="#">О нас</a></li>
+                    <li><a href="#">Блог</a></li>
+                    <li><a href="#">Карьера</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Законно</h4>
+                <ul>
+                    <li><a href="#">Политика</a></li>
+                    <li><a href="#">Лицензия</a></li>
+                    <li><a href="#">Terms</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PonOs. Все права защищены. Разработано с ❤️ для вас</p>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
