@@ -8,9 +8,39 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Получаем сохраненную версию из localStorage
     const savedVersion = localStorage.getItem('ponos-version') || 'light';
+    const savedDarkMode = localStorage.getItem('ponos-dark-mode') === 'true';
     
     // Применяем сохраненную версию при загрузке
     setVersion(savedVersion);
+    
+    // Применяем сохраненный режим темной темы
+    if (savedDarkMode) {
+        document.body.classList.add('dark');
+        const themeToggle = document.querySelector('.theme-toggle');
+        if (themeToggle) {
+            themeToggle.classList.add('dark');
+            themeToggle.textContent = '☀️';
+        }
+    }
+    
+    // Обработчик для переключения темной темы
+    const themeToggle = document.querySelector('.theme-toggle');
+    if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+            document.body.classList.toggle('dark');
+            const isDark = document.body.classList.contains('dark');
+            localStorage.setItem('ponos-dark-mode', isDark);
+            
+            // Меняем иконку
+            if (isDark) {
+                this.textContent = '☀️';
+                this.classList.add('dark');
+            } else {
+                this.textContent = '🌙';
+                this.classList.remove('dark');
+            }
+        });
+    }
     
     // Добавляем обработчики событий на все кнопки
     versionButtons.forEach(button => {

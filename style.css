@@ -175,8 +175,8 @@ h1, h2, h3, h4 {
     left: 0;
     right: 0;
     z-index: 2000;
-    padding: 15px 20px;
-    background: linear-gradient(135deg, rgba(0,0,0,0.8), rgba(0,0,0,0.6));
+    padding: 8px 15px;
+    background: linear-gradient(135deg, rgba(0,0,0,0.9), rgba(0,0,0,0.7));
     backdrop-filter: blur(10px);
 }
 
@@ -188,25 +188,27 @@ h1, h2, h3, h4 {
 
 .selector-top {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    gap: 30px;
-    margin-bottom: 15px;
+    gap: 15px;
+    margin-bottom: 8px;
+    flex-wrap: wrap;
 }
 
 .theme-toggle {
     background: rgba(255, 255, 255, 0.15);
     color: #fff;
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
     transition: var(--transition);
-    font-size: 20px;
+    font-size: 18px;
     cursor: pointer;
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
@@ -222,33 +224,39 @@ h1, h2, h3, h4 {
 
 .version-selector h2 {
     color: #fff;
-    font-size: 14px;
+    font-size: 12px;
     margin-bottom: 0;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    flex: 1;
+    text-align: left;
+    min-width: 150px;
+    margin: 0;
 }
 
 .version-buttons {
     display: flex;
-    gap: 10px;
+    gap: 6px;
     justify-content: center;
     flex-wrap: wrap;
+    width: 100%;
 }
 
 .version-btn {
-    padding: 10px 18px;
+    padding: 6px 12px;
     background: rgba(255, 255, 255, 0.15);
     color: #fff;
-    border: 2px solid rgba(255, 255, 255, 0.3);
-    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 6px;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 14px;
+    gap: 5px;
+    font-size: 12px;
     font-weight: 600;
     transition: var(--transition);
     cursor: pointer;
-    min-height: 40px;
+    min-height: 36px;
+    white-space: nowrap;
 }
 
 .version-btn:hover {
@@ -1289,46 +1297,43 @@ section h2::after {
 
     /* Версия selector */
     .version-selector-container {
-        padding: 12px 10px;
+        padding: 8px 10px;
     }
 
     .selector-top {
-        gap: 15px;
-        margin-bottom: 10px;
+        gap: 10px;
+        margin-bottom: 6px;
     }
 
     .version-selector h2 {
-        font-size: 13px;
+        font-size: 11px;
     }
 
     .theme-toggle {
-        width: 36px;
-        height: 36px;
-        font-size: 18px;
-    }
-
-    .version-buttons {
-        gap: 6px;
-    }
-
-    .version-btn {
-        padding: 7px 10px;
-        font-size: 11px;
-        gap: 4px;
-    }
-
-    .version-icon {
+        width: 32px;
+        height: 32px;
         font-size: 16px;
     }
 
-    /* Навигация */
-    .navbar {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-        border-bottom: 1px solid rgba(var(--current-accent), 0.2);
-        margin-bottom: 25px;
-        padding: 15px 0;
+    .version-buttons {
+        gap: 5px;
+    }
+
+    .version-btn {
+        padding: 5px 8px;
+        font-size: 10px;
+        gap: 3px;
+        min-height: 32px;
+    }
+
+    .version-icon {
+        font-size: 14px;
+    }
+
+    /* Container */
+    .container {
+        margin-top: 120px;
+        padding: 0 15px;
     }
 
     .nav-logo {
@@ -1639,7 +1644,7 @@ section h2::after {
 
     /* Версия selector - компактнее */
     .version-selector-container {
-        padding: 10px 8px;
+        padding: 8px 8px;
         position: fixed;
         top: 0;
         left: 0;
@@ -1648,40 +1653,48 @@ section h2::after {
     }
 
     .selector-top {
-        flex-direction: column;
-        gap: 8px;
-        margin-bottom: 8px;
+        flex-direction: row;
+        gap: 6px;
+        margin-bottom: 6px;
+        justify-content: space-between;
     }
 
     .version-selector h2 {
-        font-size: 12px;
+        font-size: 10px;
+        flex: 1;
+        text-align: left;
+        min-width: 100px;
+        letter-spacing: 0;
     }
 
     .theme-toggle {
-        width: 32px;
-        height: 32px;
-        font-size: 16px;
+        width: 30px;
+        height: 30px;
+        font-size: 14px;
     }
 
     .version-buttons {
-        flex-direction: column;
-        gap: 5px;
+        flex-direction: row;
+        gap: 4px;
+        flex-wrap: wrap;
     }
 
     .version-btn {
-        width: 100%;
-        padding: 8px 10px;
-        font-size: 11px;
+        width: auto;
+        padding: 5px 10px;
+        font-size: 9px;
         justify-content: center;
+        white-space: nowrap;
+        min-height: 30px;
     }
 
     .version-icon {
-        font-size: 14px;
+        font-size: 12px;
     }
 
     /* Container с большим top margin */
     .container {
-        margin-top: 155px;
+        margin-top: 105px;
     }
 
     /* Навигация */
@@ -2053,17 +2066,39 @@ section h2::after {
 /* Очень маленькие экраны (под 360px) */
 @media (max-width: 360px) {
     .container {
-        margin-top: 160px;
+        margin-top: 100px;
         padding: 0 10px;
     }
 
+    .version-selector-container {
+        padding: 6px 6px;
+    }
+
+    .selector-top {
+        gap: 5px;
+        margin-bottom: 4px;
+    }
+
     .version-selector h2 {
-        font-size: 11px;
+        font-size: 9px;
+        min-width: auto;
+        display: none;
     }
 
     .version-btn {
-        padding: 6px 8px;
-        font-size: 10px;
+        padding: 4px 6px;
+        font-size: 9px;
+        min-height: 28px;
+    }
+
+    .version-icon {
+        font-size: 11px;
+    }
+
+    .theme-toggle {
+        width: 28px;
+        height: 28px;
+        font-size: 13px;
     }
 
     .hero-content h1 {
